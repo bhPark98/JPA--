@@ -4,6 +4,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface BoardRepository extends CrudRepository<Board, Long> {
@@ -13,6 +15,9 @@ public interface BoardRepository extends CrudRepository<Board, Long> {
 
     @Query("SELECT b FROM Board b WHERE b.title=?1 AND b.writer=?2")
     List<Board> findByTitleAndWriter2(String title, String writer);
+
+    @Query(value="SELECT * FROM BOARD", nativeQuery = true) // SQL
+    List<Board> findAllBoardBySQL3(Pageable pageable);
 
     // SELECT COUNT(*) FROM BOARD WHERE WRITER = :writer
     int countAllByWriter(String writer);

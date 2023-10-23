@@ -15,7 +15,7 @@ import javax.persistence.EntityManager;
 import java.util.Date;
 import java.util.List;
 
-import static com.fastcampus.ch4.QBoard.board;
+//import static com.fastcampus.ch4.QBoard.board;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
